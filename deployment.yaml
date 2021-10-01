@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment-app
+  labels:
+    app: my-deployment-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-deployment-app
+  template:
+    metadata:
+      labels:
+        app: my-deployment-app
+    spec:
+      containers:
+      - name: image-registry-nanodegree
+        image: nacojohn/image-registry-nanodegree
+        ports:
+        - containerPort: 80
